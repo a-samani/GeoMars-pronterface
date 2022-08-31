@@ -2766,7 +2766,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
         MainWindow.__init__(self, None, title = _("Geomars"), size = size)
         if self.settings.last_window_maximized:
             self.Maximize()
-        self.SetIcon(wx.Icon(iconfile("pronterface.png"), wx.BITMAP_TYPE_PNG))
+        self.SetIcon(wx.Icon(iconfile("printrun/Icons/logofinal300.png"), wx.BITMAP_TYPE_PNG))
         self.Bind(wx.EVT_SIZE, self.on_resize)
         self.Bind(wx.EVT_MAXIMIZE, self.on_maximize)
         self.window_ready = True
@@ -3468,7 +3468,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
 
         m = wx.Menu()
         self.Bind(wx.EVT_MENU, self.about,
-                  m.Append(-1, _("&About Printrun"), _("Show about dialog")))
+                  m.Append(-1, _("&About GeoMars"), _("Show about dialog")))
         self.menustrip.Append(m, _("&Help"))
 
     def project(self, event):
@@ -3496,20 +3496,20 @@ class PronterWindow(MainWindow, pronsole.pronsole):
 
         info = wx.adv.AboutDialogInfo()
 
-        info.SetIcon(wx.Icon(iconfile("pronterface.png"), wx.BITMAP_TYPE_PNG))
-        info.SetName('Printrun')
+        info.SetIcon(wx.Icon(iconfile("printrun/Icons/logofinal300.png"), wx.BITMAP_TYPE_PNG))
+        info.SetName("GeoMars \n based on 'Printrun'")
         info.SetVersion(printcore.__version__)
 
-        description = _("Printrun is a pure Python 3D printing"
-                        " (and other types of CNC) host software.")
+        description = _("GeoMars is a pure Python 3D printing based on 'Printrun'"
+                        )
 
         description += "\n\n" + \
                        _("%.02fmm of filament have been extruded during prints") \
                        % self.settings.total_filament_used
 
         info.SetDescription(description)
-        info.SetCopyright('(C) 2011 - 2020')
-        info.SetWebSite('https://github.com/kliment/Printrun')
+        info.SetCopyright('(C) 2022 - 2023')
+        info.SetWebSite('https://github.com/a-samani/GeoMars-pronterface')
 
         licence = """\
 Printrun is free software: you can redistribute it and/or modify it under the
@@ -3525,6 +3525,7 @@ You should have received a copy of the GNU General Public License along with
 Printrun. If not, see <http://www.gnu.org/licenses/>."""
 
         info.SetLicence(licence)
+        info.AddDeveloper('@a-samani (Geomars)')
         info.AddDeveloper('Kliment Yanev @kliment (code)')
         info.AddDeveloper('Guillaume Seguin @iXce (code)')
         info.AddDeveloper('@DivingDuck (code)')
