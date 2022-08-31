@@ -1,0 +1,4 @@
+Use Conda to create an environment using GeomarsEnv.yml
+
+conda env create -f GeomarsEnv.yml
+
